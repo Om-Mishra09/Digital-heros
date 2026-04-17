@@ -29,9 +29,9 @@ export default function SubscriptionManager() {
   const { user } = useAuth();
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
 
-  const MONTHLY_PRICE_ID = "prod_UM0WChS5Hp0YXY";
-  const YEARLY_PRICE_ID = "prod_UM0XOXoGnrolRk";
-
+  const MONTHLY_PRICE_ID = import.meta.env.VITE_STRIPE_PRICE_MONTHLY;
+  const YEARLY_PRICE_ID = import.meta.env.VITE_STRIPE_PRICE_YEARLY;
+  
   const handleSubscribe = async (planId: string) => {
     if (!user) return;
     
